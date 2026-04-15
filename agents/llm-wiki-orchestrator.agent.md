@@ -31,7 +31,7 @@ Trigger phrases:
 - "set up wiki layer"
 - "initialize my llm wiki"
 
-See: [Setup Workflow](.github/skills/llm-wiki-setup.md)
+See: [Setup Workflow](../skills/llm-wiki-setup.md)
 
 ### 2. Ingest
 
@@ -42,7 +42,7 @@ Trigger phrases:
 - "process this paper into wiki"
 - "update wiki from source"
 
-See: [Ingest Workflow](.github/skills/llm-wiki-ingest.md)
+See: [Ingest Workflow](../skills/llm-wiki-ingest.md)
 
 ### 3. Query
 
@@ -53,7 +53,7 @@ Trigger phrases:
 - "what does the wiki say about"
 - "compare these topics from wiki"
 
-See: [Query Workflow](.github/skills/llm-wiki-query.md)
+See: [Query Workflow](../skills/llm-wiki-query.md)
 
 ### 4. Lint
 
@@ -64,4 +64,4 @@ Trigger phrases:
 - "wiki health check"
 - "find contradictions and orphans"
 
-See: [Lint Workflow](.github/skills/llm-wiki-lint.md)
+See: [Lint Workflow](../skills/llm-wiki-lint.md)
