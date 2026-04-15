@@ -5,7 +5,7 @@ tools: [execute, read, edit]
 model: [GPT-5.3-Codex (copilot)]
 user-invocable: false
 disable-model-invocation: false
-argument-hint: "Topics to search for in the wiki"
+argument-hint: "Wiki query results with cited pages"
 ---
 
 # LLM Wiki Synthesizer
@@ -20,23 +20,17 @@ When the wiki is queried, the results can be synthesized to build a comprehensiv
 Outcome from a wiki query, including cited pages.
 
 ## Workflow
-1. Review the cited pages from the wiki query results.
-  - `obsidian read file="03-Resources/LLM-Wiki/sources/example-source.md"`
-
-## Obsidian CLI Examples
-```bash
-# Discover relevant pages before editing
-obsidian search query="roofline" path="03-Resources/LLM-Wiki"
-# Search with context matches
-obsidian search:context query="cache-aware" path="03-Resources/LLM-Wiki"
-# Search by metadata
-obsidian search query='["tags":"gpu-kernels"]' path="03-Resources/LLM-Wiki"
-# Combine them:
-obsidian search query='["type":"wiki-synthesis"] llm' path="03-Resources/LLM-Wiki"
-
-# Which pages does a page link to and which pages link to it?
-obsidian links path="03-Resources/LLM-Wiki/sources/example-source.md"
-obsidian backlinks path="03-Resources/LLM-Wiki/sources/example-source.md" counts
-```
+1. Create the synthesis page from a template.
+  - `obsidian create path="03-Resources/LLM-Wiki/syntheses/<synthesis-title>.md" template="synthesis-page.md"`
+2. Read the created template to understand the expected structure.
+  - `obsidian read path="03-Resources/LLM-Wiki/syntheses/<synthesis-title>.md"`
+3. Review the cited pages from the wiki query results.
+  - `obsidian read file="03-Resources/LLM-Wiki/<source>"`
+  - Keep reading until you have a good understanding of the cited content and how it connects.
+4. Use the built-in edit tools to write the synthesis page.
+  - Resolve the absolute synthesis path with `obsidian vault info=path`.
 
 ## Output
+Respond with the path to the created synthesis page like so:
+
+`CREATED SYNTHESIS PAGE: 03-Resources/LLM-Wiki/syntheses/<synthesis-title>.md`

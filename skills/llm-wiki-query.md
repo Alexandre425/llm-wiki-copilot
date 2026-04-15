@@ -22,7 +22,7 @@ Resolve `{{vaultPath}}` the command `obsidian vault info=path`.
 ### Step 1: Query wiki for relevant content
 
 - Run the "LLM Wiki Searcher" subagent to read the current wiki content relevant to the source's topics.
-  - Dead simple prompt: "Search the wiki for content relevant to <topics> and respond with a summary"
+  - Dead simple prompt: `Search the wiki for content relevant to <topics> and respond with a summary`
   - Keep the prompt simple.
 
 ### Step 2: Attend to the user's request
@@ -34,4 +34,8 @@ Resolve `{{vaultPath}}` the command `obsidian vault info=path`.
 
 ### Step 3: Suggest next steps (optional)
 
-- The subagent may recommend 
+The subagent may recommend creating a synthesis page when an answer is valuable and no related syntheses were found. If so, suggest a title and one-line description for the synthesis, and ask the user if they want to create it. If so:
+
+- Delegate the synthesis to the "LLM Wiki Synthesizer" subagent.
+  - Forward the outcome of the wiki search as context for the synthesis.
+  - Prompt structure: `Create a synthesis page for <synthesis-title>. Relevant context: <wiki-search-results>. Relevant cited pages: <cited-pages>.`
